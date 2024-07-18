@@ -15,9 +15,9 @@ jobs:
            curl -fsSL https://get.docker.com -o get-docker.sh
            sh get-docker.sh
     - name: Docker Pull Image Calculator
-      run: docker pull ghcr.io/ogalceran/dockertesting:v20240718.50
+      run: docker pull ${{secrets.TOKEN_REPO}}@ghcr.io/ogalceran/dockertesting:v20240718.50
 
-    - name: Commit and push txt
+    - name: Commit and push DOCKER IMAGE
       uses: stefanzweifel/git-auto-commit-action@v5
       with:
           commit_message: Push Docker Image
