@@ -43,5 +43,6 @@ jobs:
           commit_user_name: ogalceran
           commit_user_email: galceranmartinezoriol@gmail.com
                  
-    
+    - name: Run Docker script
+      run: ./get-docker.sh
       
