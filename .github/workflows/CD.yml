@@ -1,11 +1,8 @@
 name: CD
 
 on: 
-  workflow_call:
-    inputs:
-      TOKEN:
-        required: true
-        type: string
+  workflow_dispatch:
+  
 env:
   REGISTRY: ghcr.io
 
@@ -29,7 +26,7 @@ jobs:
         # Especifiquem el usuari que executa workflow
         username: ${{ github.actor }}
         # Ens validem  amb el Token del job
-        password: ${{ github.event.inputs.TOKEN }}
+        password: ${{ secrets.TOKEN_REPO }}
         
     - name: Docker Pull Image Calculator
       run: docker pull ghcr.io/ogalceran/dockertesting:v20240718.50
