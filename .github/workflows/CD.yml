@@ -1,24 +1,11 @@
 name: CD
 
 on: 
-  workflow_dispatch:
-    inputs:
-      Deploy:
-        required: true
-        type: choice
-        options:
-          - Feature
-          - Fix Bug
+  workflow_call:
 
 jobs:
   run_tests:
     runs-on: ubuntu-latest
-    permissions:
-      # permís d' escriptura
-      contents: write
     steps:
-    - name: Checkout
-      uses: actions/checkout@v4
-      
-    - name: Run tests Template
-      uses: https:/${{secrets.TOKEN_REPO}}:TheGr8Infra/.github/workflows/template_codeverify_runtests.yml
+      - name: Run test
+        uses: ogalceran/DeployGHPages/.github/workflows/template_codeverify_runtests.yml@main

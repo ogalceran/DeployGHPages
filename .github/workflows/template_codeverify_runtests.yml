@@ -1,0 +1,47 @@
+name: Code Verify & Run tests
+
+on: 
+    workflow_dispatch:
+    workflow_call:
+
+jobs:
+    code-verification:
+        runs-on: ubuntu-latest
+        steps:
+            - name: checkout
+              uses: actions/checkout@v4
+
+            - name: Setup Node
+              uses: actions/setup-node@v4
+              with:
+                node-version: 20.15.0
+
+            - name: Yarn Install
+              run: yarn install || yarn --version
+
+            - name: Yarn set version
+              run: | 
+                yarn set version canary
+                yarn --version
+
+            - name: Yarn Standard Comprovation
+              run: |
+                yarn add -D standard
+                yarn run standard "./src/calculite/*.js"
+
+            - name: Install playwright
+              run: yarn playwright install
+
+            - name: Setup Python
+              uses: actions/setup-python@v5
+              with:
+                python-version: '3.x' 
+
+            - name: Launch HTTP Server py
+              run: python3 -m http.server -b 127.0.0.1 5500 &
+
+            - name: xvfb
+              run: |
+                sudo apt-get install xvfb
+                xvfb-run --auto-servernum yarn test ./tests/features/calculator.group1.feature
+            
