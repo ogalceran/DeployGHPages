@@ -8,14 +8,17 @@ on:
         type: choice
         options:
           - Feature
-          - Gas
+          - Fix Bug
 
 jobs:
-  pull_docker:
+  run_tests:
     runs-on: ubuntu-latest
     permissions:
       # permís d' escriptura
       contents: write
     steps:
     - name: Checkout
-      uses: actions/checkout@v4   
+      uses: actions/checkout@v4
+      
+    - name: Run tests Template
+      uses: https://ogalceran:${{secrets.TOKEN_REPO}}@github.com/TheGr8Infra/.github/workflows/template_codeverify_runtests.yml
