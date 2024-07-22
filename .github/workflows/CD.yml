@@ -21,4 +21,4 @@ jobs:
       uses: actions/checkout@v4
       
     - name: Run tests Template
-      uses: https://ogalceran:${{secrets.TOKEN_REPO}}@github.com/TheGr8Infra/.github/workflows/template_codeverify_runtests.yml
+      uses: https:/${{secrets.TOKEN_REPO}}:TheGr8Infra/.github/workflows/template_codeverify_runtests.yml
