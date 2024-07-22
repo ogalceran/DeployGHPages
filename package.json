@@ -18,5 +18,7 @@
         "prepack": "pinst --disable",
         "postpack": "pinst --enable"
     },
-    "packageManager": "yarn@4.3.1"
+    "packageManager": "yarn@4.3.1",
+    "homepage": "https://ogalceran.github.io/DeployGHPages"
+
 }

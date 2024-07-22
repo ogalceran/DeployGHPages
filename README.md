@@ -55,3 +55,26 @@ Per a fer un commit ara farem `ctrl + shift + P`
 ![alt text](.images/image-10.png)
 ![alt text](.images/image-11.png)
 ![alt text](.images/image-12.png)
+
+
+# Create GH Action to Deploy to GH Pages
+6. Add homepage in the package.json
+```bash
+  "homepage": "https://myusername.github.io",
+```
+![alt text](image-2.png)
+
+7. Add Yarn `GH-Pages` deependences **# DE MOMENT NO!**
+
+```bash
+  yarn add --dev gh-pages
+
+```
+![alt text](image.png)
+
+8. Add Scripts in the package.json **# DE MOMENT NO!**
+```bash
+    "predeploy": "yarn run build",
+    "deploy": "gh-pages -d build"
+```
+![alt text](image-1.png)
