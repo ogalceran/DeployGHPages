@@ -8,6 +8,21 @@ yarn add -D husky
 yarn dlx husky-init --yarn2 && yarn
 
 ```
+
+**yarn dlx husky-init --yarn2 && yarn**
+
+Què fa cada part del comandament?
+  ```bash
+    yarn dlx: Executa una eina de manera temporal sense necessitat d'instal·lar-la globalment. És com un comandament ràpid per a executar scripts de paquets.
+
+    husky-init: És l'script que inicialitza Husky al teu projecte. Husky és una eina per gestionar hooks de Git, com pre-commit, pre-push, etc.
+
+    --yarn2: Indica que estàs utilitzant Yarn 2 o una versió superior. Això assegura que Husky es configuri correctament per a la teva versió de Yarn.
+
+    &&: És un operador que permet encadenar comandaments. El segon comandament (en aquest cas, yarn) només s'executarà si el primer comandament es completa amb èxit.
+
+    yarn: Aquest comandament s'executa després d'inicialitzar Husky per instal·lar totes les dependències i aplicar qualsevol configuració addicional necessària.
+````
 2. Afegir el conventional commit
 yarn add -D @commitlint/cli @commitlint/config-conventional
 
