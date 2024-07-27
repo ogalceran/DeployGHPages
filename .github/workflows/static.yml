@@ -22,6 +22,10 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
+  # Run CI Template
+  run_tests:
+    uses: ogalceran/DeployGHPages/.github/workflows/template_codeverify_runtests.yml@main
+
   # Single deploy job since we're just deploying
   deploy:
     environment:
@@ -31,8 +35,10 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+        
       - name: Setup Pages
         uses: actions/configure-pages@v5
+        
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
