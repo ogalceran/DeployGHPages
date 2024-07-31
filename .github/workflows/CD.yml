@@ -23,8 +23,6 @@ concurrency:
 
 jobs:
   # Run CI Template
-  run_tests:
-    uses: ogalceran/DeployGHPages/.github/workflows/template_codeverify_runtests.yml@main
 
   # Single deploy job since we're just deploying
   deploy:
@@ -33,6 +31,7 @@ jobs:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
+    uses: ogalceran/DeployGHPages/.github/workflows/template_codeverify_runtests.yml@main
     steps:
       - name: Checkout
         uses: actions/checkout@v4
