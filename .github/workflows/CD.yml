@@ -24,7 +24,10 @@ concurrency:
 jobs:
   # Run CI Template
   run_tests:
-    uses: ogalceran/DeployGHPages/.github/workflows/template_codeverify_runtests.yml@main
+    runs-on: ubuntu-latest
+    steps:
+      - name: Run tests
+        uses: ogalceran/DeployGHPages/.github/workflows/template_codeverify_runtests.yml@main
 
   # Single deploy job since we're just deploying
   deploy:
