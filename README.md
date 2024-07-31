@@ -5,6 +5,7 @@
 1. Instalar husky
 ```
 yarn add -D husky
+yarn add -D @commitlint/cli @commitlint/config-conventional
 yarn dlx husky-init --yarn2 && yarn
 
 ```
